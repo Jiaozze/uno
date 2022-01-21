@@ -43,13 +43,13 @@ public static class NetWork
                 //thread.Start(socket);
 
                 easyThread.StartNewThread(thread, socket);
-                easyThread.mainRemote.On<string, byte[]>(EVENT_RECEIVE, (name, bodyBuffer) =>
+                easyThread.mainRemote.On<int, byte[]>(EVENT_RECEIVE, (id, bodyBuffer) =>
                 {
-                    ProtoHelper.OnReceiveMsg(name, bodyBuffer);
+                    ProtoHelper.OnReceiveMsg(id, bodyBuffer);
                 });
-                easyThread.childRemote.On<string, byte[]>(EVENT_RECEIVE, (name, bodyBuffer) =>
+                easyThread.childRemote.On<int, byte[]>(EVENT_RECEIVE, (id, bodyBuffer) =>
                 {
-                    ProtoHelper.OnReceiveMsg(name, bodyBuffer);
+                    ProtoHelper.OnReceiveMsg(id, bodyBuffer);
                 });
                 GameManager.Singleton.gameWindow.SetEnterUI(false);
             }
@@ -77,12 +77,12 @@ public static class NetWork
             {
                 byte[] buffer = new byte[1024];
                 SocketReadWithLength(receiveSocket, buffer, 2);
-                int len1 = (buffer[0] << 8) | buffer[1];
+                int len1 = (buffer[1] << 8) | buffer[0];
                 SocketReadWithLength(receiveSocket, buffer, len1);
-                int len2 = (buffer[0] << 8) | buffer[1];
-                string name = Encoding.UTF8.GetString(buffer, 2, len2);
-                byte[] body = buffer.Skip(2 + len2).Take(len1 - len2 - 2).ToArray();
-                easyThread.mainRemote.Send(EVENT_RECEIVE, name, body);
+                int id = (buffer[1] << 8) | buffer[0];
+                //string name = Encoding.UTF8.GetString(buffer, 2, len2);
+                byte[] body = buffer.Skip(2).Take(len1 - 2).ToArray();
+                easyThread.mainRemote.Send(EVENT_RECEIVE, id, body);
 
                 //int result = receiveSocket.Receive(bufferRead);
                 //Debug.Log(result);
