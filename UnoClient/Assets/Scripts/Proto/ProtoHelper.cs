@@ -109,6 +109,25 @@ public static class ProtoHelper
         NetWork.Send(msg);
     }
 
+    public static void SendRestartMessage()
+    {
+        restart_game_tos discard_Card_Tos = new restart_game_tos();
+
+        byte[] proto = discard_Card_Tos.ToByteArray();
+        int protoId = GetIdFromProtoName("discard_card_tos");
+        short len = (short)(proto.Length + 2);
+        short shortId = (short)protoId;
+        List<byte> vs = new List<byte>() { (byte)len, (byte)(len >> 8), (byte)shortId, (byte)(shortId >> 8), };
+
+        foreach (var bt in proto)
+        {
+            vs.Add(bt);
+        }
+        byte[] msg = vs.ToArray();
+        //Debug.Log(BitConverter.ToString(msg, 0, msg.Length));
+        NetWork.Send(msg);
+    }
+
     private static Dictionary<string, int> proto_name_id = new Dictionary<string, int>();
     public static int GetIdFromProtoName(string protoName)
     {
