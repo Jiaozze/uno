@@ -37,15 +37,15 @@ public class UICard : MonoBehaviour
         this.id = id;
         string path = "Assets/Image/icon/";
 
-        //Sprite sprite = Resources.Load("icon/" + color + "_" + num, typeof(Sprite)) as Sprite;
-        //image.overrideSprite = sprite;
-        Addressables.LoadAssetAsync<Sprite>(path + color + "_" + num + ".png").Completed += (r) =>
-        {
-            if (r.Result != null)
-            {
-                image.overrideSprite = r.Result;
-            }
-        };
+        Sprite sprite = Resources.Load("icon/" + color + "_" + num, typeof(Sprite)) as Sprite;
+        image.overrideSprite = sprite;
+        //Addressables.LoadAssetAsync<Sprite>(path + color + "_" + num + ".png").Completed += (r) =>
+        //{
+        //    if (r.Result != null)
+        //    {
+        //        image.overrideSprite = r.Result;
+        //    }
+        //};
 
     }
 

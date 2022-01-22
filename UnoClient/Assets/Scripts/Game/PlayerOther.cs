@@ -44,4 +44,12 @@ public class PlayerOther : PlayerBase
             ui.SetTurn(onTurn);
         }
     }
+
+    public override void Dispose()
+    {
+        if (ui != null)
+        {
+            GameObject.Destroy(ui.gameObject);
+        }
+    }
 }

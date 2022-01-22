@@ -60,7 +60,15 @@ public class GameManager
 
     public void InitOtherPlayer()
     {
+        
         int num = PlayerNum - 1;
+        if(otherPlayers != null && otherPlayers.Count > 0)
+        {
+            foreach(var other in otherPlayers)
+            {
+                other.Dispose();
+            }
+        }
         otherPlayers.Clear();
         for (int i = 0; i < num; i++)
         {
@@ -216,6 +224,13 @@ public class GameManager
     public void OnReceiveGameStart(int player_num, List<Card> cards)
     {
         PlayerNum = player_num;
+        if(this.cards != null && cards.Count > 0)
+        {
+            foreach(var card in cards)
+            {
+                GameObject.Destroy(card.cardUI);
+            }
+        }
         this.cards = cards;
 
         gameWindow.Init();

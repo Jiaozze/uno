@@ -41,16 +41,16 @@ public class GameWindow : MonoBehaviour
 
     }
 
-    public void InitCards()
-    {
-        if (cardsGrid.transform.childCount != 0)
-        {
-            for (int i = cardsGrid.transform.childCount - 1; i >= 0; i--)
-            {
-                GameObject.DestroyImmediate(cardsGrid.transform.GetChild(i).gameObject);
-            }
-        }
-    }
+    //public void InitCards()
+    //{
+    //    if (cardsGrid.transform.childCount != 0)
+    //    {
+    //        for (int i = cardsGrid.transform.childCount - 1; i >= 0; i--)
+    //        {
+    //            GameObject.DestroyImmediate(cardsGrid.transform.GetChild(i).gameObject);
+    //        }
+    //    }
+    //}
 
     public void OnClickDrawCard()
     {
@@ -102,7 +102,7 @@ public class GameWindow : MonoBehaviour
 
     public void Init()
     {
-        InitCards();
+        //InitCards();
         GameManager.Singleton.InitOtherPlayer();
         Player.Singleton.InitCards();
     }
@@ -164,6 +164,7 @@ public class GameWindow : MonoBehaviour
     {
         int index = 0;
         uICard.transform.parent = transCards;
+        uICard.transform.localScale = Vector3.one;
         for (int i = 0; i < transCards.childCount; i++)
         {
             int cardId = transCards.GetChild(i).GetComponent<UICard>().id;

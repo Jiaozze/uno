@@ -28,6 +28,13 @@ public class Player : PlayerBase
     public void InitCards()
     {
         List<Card> cards = GameManager.Singleton.cards;
+        if (this.cards != null && this.cards.Count > 0)
+        {
+            foreach(var id_card in this.cards)
+            {
+                id_card.Value.OnDisCard();
+            }
+        }
         this.cards.Clear();
         if(cards != null && cards.Count > 0)
         {

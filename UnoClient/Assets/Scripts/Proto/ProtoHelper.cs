@@ -75,6 +75,15 @@ public static class ProtoHelper
             //GameManager.Singleton.OnDisCard((int)discard_card_tos.PlayerId, (int)discard_card_tos.Card.CardId, (int)discard_card_tos.Card.Color, (int)discard_card_tos.Card.Num, (int)discard_card_tos.WantColor);
 
         }
+        else if (GetIdFromProtoName("notify_win_toc") == id)
+        {
+            notify_win_toc notify_win_toc = notify_win_toc.Parser.ParseFrom(contont);
+            Debug.Log("" + notify_win_toc.PlayerId + "号玩家赢了");
+        }
+        else if(GetIdFromProtoName("restart_game_tos") == id)
+        {
+            Debug.Log("重开了");
+        }
         else
         {
             Debug.LogError("undefine proto:" + id);
@@ -116,7 +125,7 @@ public static class ProtoHelper
                 hash = (ushort)(hash + ((hash) << 5) + ch + (ch << 7));
             }
             proto_name_id.Add(protoName, (int)hash);
-            Debug.LogError("protoName:" + hash);
+            //Debug.LogError("protoName:" + hash);
             return (int)hash;
         }
     }

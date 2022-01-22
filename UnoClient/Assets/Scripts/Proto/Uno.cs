@@ -22,17 +22,18 @@ public static partial class UnoReflection {
   static UnoReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "Cgl1bm8ucHJvdG8iNwoIdW5vX2NhcmQSDwoHY2FyZF9pZBgBIAIoDRINCgVj",
-          "b2xvchgCIAIoDRILCgNudW0YAyACKA0iOAoIaW5pdF90b2MSEgoKcGxheWVy",
-          "X251bRgBIAIoDRIYCgVjYXJkcxgCIAMoCzIJLnVub19jYXJkIjkKF290aGVy",
-          "X2FkZF9oYW5kX2NhcmRfdG9jEhEKCXBsYXllcl9pZBgBIAIoDRILCgNudW0Y",
-          "AiACKA0iKAoNZHJhd19jYXJkX3RvYxIXCgRjYXJkGAEgAygLMgkudW5vX2Nh",
-          "cmQiMQoPbm90aWZ5X3R1cm5fdG9jEhEKCXBsYXllcl9pZBgBIAIoDRILCgNk",
-          "aXIYAiACKAgiHwoQc2V0X2RlY2tfbnVtX3RvYxILCgNudW0YASACKA0iNwoQ",
-          "ZGlzY2FyZF9jYXJkX3RvcxIPCgdjYXJkX2lkGAEgAigNEhIKCndhbnRfY29s",
-          "b3IYAiABKA0iUgoQZGlzY2FyZF9jYXJkX3RvYxIRCglwbGF5ZXJfaWQYASAC",
-          "KA0SFwoEY2FyZBgCIAIoCzIJLnVub19jYXJkEhIKCndhbnRfY29sb3IYAyAB",
-          "KA1CEFoOcHJvdG9zLztwcm90b3M="));
+          "Cgl1bm8ucHJvdG8iNwoIdW5vX2NhcmQSDwoHY2FyZF9pZBgBIAEoDRINCgVj",
+          "b2xvchgCIAEoDRILCgNudW0YAyABKA0iOAoIaW5pdF90b2MSEgoKcGxheWVy",
+          "X251bRgBIAEoDRIYCgVjYXJkcxgCIAMoCzIJLnVub19jYXJkIjkKF290aGVy",
+          "X2FkZF9oYW5kX2NhcmRfdG9jEhEKCXBsYXllcl9pZBgBIAEoDRILCgNudW0Y",
+          "AiABKA0iKAoNZHJhd19jYXJkX3RvYxIXCgRjYXJkGAEgAygLMgkudW5vX2Nh",
+          "cmQiMQoPbm90aWZ5X3R1cm5fdG9jEhEKCXBsYXllcl9pZBgBIAEoDRILCgNk",
+          "aXIYAiABKAgiHwoQc2V0X2RlY2tfbnVtX3RvYxILCgNudW0YASABKA0iNwoQ",
+          "ZGlzY2FyZF9jYXJkX3RvcxIPCgdjYXJkX2lkGAEgASgNEhIKCndhbnRfY29s",
+          "b3IYAiABKA0iUgoQZGlzY2FyZF9jYXJkX3RvYxIRCglwbGF5ZXJfaWQYASAB",
+          "KA0SFwoEY2FyZBgCIAEoCzIJLnVub19jYXJkEhIKCndhbnRfY29sb3IYAyAB",
+          "KA0iIwoObm90aWZ5X3dpbl90b2MSEQoJcGxheWVyX2lkGAEgASgNIhIKEHJl",
+          "c3RhcnRfZ2FtZV90b3NCEFoOcHJvdG9zLztwcm90b3NiBnByb3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -43,7 +44,9 @@ public static partial class UnoReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::notify_turn_toc), global::notify_turn_toc.Parser, new[]{ "PlayerId", "Dir" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::set_deck_num_toc), global::set_deck_num_toc.Parser, new[]{ "Num" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::discard_card_tos), global::discard_card_tos.Parser, new[]{ "CardId", "WantColor" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::discard_card_toc), global::discard_card_toc.Parser, new[]{ "PlayerId", "Card", "WantColor" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::discard_card_toc), global::discard_card_toc.Parser, new[]{ "PlayerId", "Card", "WantColor" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::notify_win_toc), global::notify_win_toc.Parser, new[]{ "PlayerId" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::restart_game_tos), global::restart_game_tos.Parser, null, null, null, null, null)
         }));
   }
   #endregion
@@ -56,7 +59,6 @@ public static partial class UnoReflection {
 public sealed partial class uno_card : pb::IMessage<uno_card> {
   private static readonly pb::MessageParser<uno_card> _parser = new pb::MessageParser<uno_card>(() => new uno_card());
   private pb::UnknownFieldSet _unknownFields;
-  private int _hasBits0;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pb::MessageParser<uno_card> Parser { get { return _parser; } }
 
@@ -79,7 +81,6 @@ public sealed partial class uno_card : pb::IMessage<uno_card> {
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public uno_card(uno_card other) : this() {
-    _hasBits0 = other._hasBits0;
     cardId_ = other.cardId_;
     color_ = other.color_;
     num_ = other.num_;
@@ -93,83 +94,44 @@ public sealed partial class uno_card : pb::IMessage<uno_card> {
 
   /// <summary>Field number for the "card_id" field.</summary>
   public const int CardIdFieldNumber = 1;
-  private readonly static uint CardIdDefaultValue = 0;
-
   private uint cardId_;
   /// <summary>
   /// 卡牌ID
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public uint CardId {
-    get { if ((_hasBits0 & 1) != 0) { return cardId_; } else { return CardIdDefaultValue; } }
+    get { return cardId_; }
     set {
-      _hasBits0 |= 1;
       cardId_ = value;
     }
-  }
-  /// <summary>Gets whether the "card_id" field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasCardId {
-    get { return (_hasBits0 & 1) != 0; }
-  }
-  /// <summary>Clears the value of the "card_id" field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearCardId() {
-    _hasBits0 &= ~1;
   }
 
   /// <summary>Field number for the "color" field.</summary>
   public const int ColorFieldNumber = 2;
-  private readonly static uint ColorDefaultValue = 0;
-
   private uint color_;
   /// <summary>
   /// 1、2、3、4代表四种颜色，你爱用哪个用哪个，等价的。0代表黑牌
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public uint Color {
-    get { if ((_hasBits0 & 2) != 0) { return color_; } else { return ColorDefaultValue; } }
+    get { return color_; }
     set {
-      _hasBits0 |= 2;
       color_ = value;
     }
-  }
-  /// <summary>Gets whether the "color" field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasColor {
-    get { return (_hasBits0 & 2) != 0; }
-  }
-  /// <summary>Clears the value of the "color" field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearColor() {
-    _hasBits0 &= ~2;
   }
 
   /// <summary>Field number for the "num" field.</summary>
   public const int NumFieldNumber = 3;
-  private readonly static uint NumDefaultValue = 0;
-
   private uint num_;
   /// <summary>
   /// 0-9是数字牌 10代表“跳过”牌 11代表“反向”牌 12代表“+2牌” 13代表黑牌中的变色牌 14代表黑牌中的“+4”牌
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public uint Num {
-    get { if ((_hasBits0 & 4) != 0) { return num_; } else { return NumDefaultValue; } }
+    get { return num_; }
     set {
-      _hasBits0 |= 4;
       num_ = value;
     }
-  }
-  /// <summary>Gets whether the "num" field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasNum {
-    get { return (_hasBits0 & 4) != 0; }
-  }
-  /// <summary>Clears the value of the "num" field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearNum() {
-    _hasBits0 &= ~4;
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -194,9 +156,9 @@ public sealed partial class uno_card : pb::IMessage<uno_card> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (HasCardId) hash ^= CardId.GetHashCode();
-    if (HasColor) hash ^= Color.GetHashCode();
-    if (HasNum) hash ^= Num.GetHashCode();
+    if (CardId != 0) hash ^= CardId.GetHashCode();
+    if (Color != 0) hash ^= Color.GetHashCode();
+    if (Num != 0) hash ^= Num.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -210,15 +172,15 @@ public sealed partial class uno_card : pb::IMessage<uno_card> {
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public void WriteTo(pb::CodedOutputStream output) {
-    if (HasCardId) {
+    if (CardId != 0) {
       output.WriteRawTag(8);
       output.WriteUInt32(CardId);
     }
-    if (HasColor) {
+    if (Color != 0) {
       output.WriteRawTag(16);
       output.WriteUInt32(Color);
     }
-    if (HasNum) {
+    if (Num != 0) {
       output.WriteRawTag(24);
       output.WriteUInt32(Num);
     }
@@ -230,13 +192,13 @@ public sealed partial class uno_card : pb::IMessage<uno_card> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (HasCardId) {
+    if (CardId != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CardId);
     }
-    if (HasColor) {
+    if (Color != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Color);
     }
-    if (HasNum) {
+    if (Num != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Num);
     }
     if (_unknownFields != null) {
@@ -250,13 +212,13 @@ public sealed partial class uno_card : pb::IMessage<uno_card> {
     if (other == null) {
       return;
     }
-    if (other.HasCardId) {
+    if (other.CardId != 0) {
       CardId = other.CardId;
     }
-    if (other.HasColor) {
+    if (other.Color != 0) {
       Color = other.Color;
     }
-    if (other.HasNum) {
+    if (other.Num != 0) {
       Num = other.Num;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -294,7 +256,6 @@ public sealed partial class uno_card : pb::IMessage<uno_card> {
 public sealed partial class init_toc : pb::IMessage<init_toc> {
   private static readonly pb::MessageParser<init_toc> _parser = new pb::MessageParser<init_toc>(() => new init_toc());
   private pb::UnknownFieldSet _unknownFields;
-  private int _hasBits0;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pb::MessageParser<init_toc> Parser { get { return _parser; } }
 
@@ -317,7 +278,6 @@ public sealed partial class init_toc : pb::IMessage<init_toc> {
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public init_toc(init_toc other) : this() {
-    _hasBits0 = other._hasBits0;
     playerNum_ = other.playerNum_;
     cards_ = other.cards_.Clone();
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -330,29 +290,16 @@ public sealed partial class init_toc : pb::IMessage<init_toc> {
 
   /// <summary>Field number for the "player_num" field.</summary>
   public const int PlayerNumFieldNumber = 1;
-  private readonly static uint PlayerNumDefaultValue = 0;
-
   private uint playerNum_;
   /// <summary>
   /// 玩家总人数（包括你）
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public uint PlayerNum {
-    get { if ((_hasBits0 & 1) != 0) { return playerNum_; } else { return PlayerNumDefaultValue; } }
+    get { return playerNum_; }
     set {
-      _hasBits0 |= 1;
       playerNum_ = value;
     }
-  }
-  /// <summary>Gets whether the "player_num" field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasPlayerNum {
-    get { return (_hasBits0 & 1) != 0; }
-  }
-  /// <summary>Clears the value of the "player_num" field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearPlayerNum() {
-    _hasBits0 &= ~1;
   }
 
   /// <summary>Field number for the "cards" field.</summary>
@@ -389,7 +336,7 @@ public sealed partial class init_toc : pb::IMessage<init_toc> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (HasPlayerNum) hash ^= PlayerNum.GetHashCode();
+    if (PlayerNum != 0) hash ^= PlayerNum.GetHashCode();
     hash ^= cards_.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
@@ -404,7 +351,7 @@ public sealed partial class init_toc : pb::IMessage<init_toc> {
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public void WriteTo(pb::CodedOutputStream output) {
-    if (HasPlayerNum) {
+    if (PlayerNum != 0) {
       output.WriteRawTag(8);
       output.WriteUInt32(PlayerNum);
     }
@@ -417,7 +364,7 @@ public sealed partial class init_toc : pb::IMessage<init_toc> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (HasPlayerNum) {
+    if (PlayerNum != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PlayerNum);
     }
     size += cards_.CalculateSize(_repeated_cards_codec);
@@ -432,7 +379,7 @@ public sealed partial class init_toc : pb::IMessage<init_toc> {
     if (other == null) {
       return;
     }
-    if (other.HasPlayerNum) {
+    if (other.PlayerNum != 0) {
       PlayerNum = other.PlayerNum;
     }
     cards_.Add(other.cards_);
@@ -467,7 +414,6 @@ public sealed partial class init_toc : pb::IMessage<init_toc> {
 public sealed partial class other_add_hand_card_toc : pb::IMessage<other_add_hand_card_toc> {
   private static readonly pb::MessageParser<other_add_hand_card_toc> _parser = new pb::MessageParser<other_add_hand_card_toc>(() => new other_add_hand_card_toc());
   private pb::UnknownFieldSet _unknownFields;
-  private int _hasBits0;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pb::MessageParser<other_add_hand_card_toc> Parser { get { return _parser; } }
 
@@ -490,7 +436,6 @@ public sealed partial class other_add_hand_card_toc : pb::IMessage<other_add_han
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public other_add_hand_card_toc(other_add_hand_card_toc other) : this() {
-    _hasBits0 = other._hasBits0;
     playerId_ = other.playerId_;
     num_ = other.num_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -503,56 +448,30 @@ public sealed partial class other_add_hand_card_toc : pb::IMessage<other_add_han
 
   /// <summary>Field number for the "player_id" field.</summary>
   public const int PlayerIdFieldNumber = 1;
-  private readonly static uint PlayerIdDefaultValue = 0;
-
   private uint playerId_;
   /// <summary>
   /// 玩家ID 你的下家是1 下下家是2 以此类推
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public uint PlayerId {
-    get { if ((_hasBits0 & 1) != 0) { return playerId_; } else { return PlayerIdDefaultValue; } }
+    get { return playerId_; }
     set {
-      _hasBits0 |= 1;
       playerId_ = value;
     }
-  }
-  /// <summary>Gets whether the "player_id" field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasPlayerId {
-    get { return (_hasBits0 & 1) != 0; }
-  }
-  /// <summary>Clears the value of the "player_id" field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearPlayerId() {
-    _hasBits0 &= ~1;
   }
 
   /// <summary>Field number for the "num" field.</summary>
   public const int NumFieldNumber = 2;
-  private readonly static uint NumDefaultValue = 0;
-
   private uint num_;
   /// <summary>
   /// 增加的手牌数量
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public uint Num {
-    get { if ((_hasBits0 & 2) != 0) { return num_; } else { return NumDefaultValue; } }
+    get { return num_; }
     set {
-      _hasBits0 |= 2;
       num_ = value;
     }
-  }
-  /// <summary>Gets whether the "num" field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasNum {
-    get { return (_hasBits0 & 2) != 0; }
-  }
-  /// <summary>Clears the value of the "num" field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearNum() {
-    _hasBits0 &= ~2;
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -576,8 +495,8 @@ public sealed partial class other_add_hand_card_toc : pb::IMessage<other_add_han
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (HasPlayerId) hash ^= PlayerId.GetHashCode();
-    if (HasNum) hash ^= Num.GetHashCode();
+    if (PlayerId != 0) hash ^= PlayerId.GetHashCode();
+    if (Num != 0) hash ^= Num.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -591,11 +510,11 @@ public sealed partial class other_add_hand_card_toc : pb::IMessage<other_add_han
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public void WriteTo(pb::CodedOutputStream output) {
-    if (HasPlayerId) {
+    if (PlayerId != 0) {
       output.WriteRawTag(8);
       output.WriteUInt32(PlayerId);
     }
-    if (HasNum) {
+    if (Num != 0) {
       output.WriteRawTag(16);
       output.WriteUInt32(Num);
     }
@@ -607,10 +526,10 @@ public sealed partial class other_add_hand_card_toc : pb::IMessage<other_add_han
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (HasPlayerId) {
+    if (PlayerId != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PlayerId);
     }
-    if (HasNum) {
+    if (Num != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Num);
     }
     if (_unknownFields != null) {
@@ -624,10 +543,10 @@ public sealed partial class other_add_hand_card_toc : pb::IMessage<other_add_han
     if (other == null) {
       return;
     }
-    if (other.HasPlayerId) {
+    if (other.PlayerId != 0) {
       PlayerId = other.PlayerId;
     }
-    if (other.HasNum) {
+    if (other.Num != 0) {
       Num = other.Num;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -785,7 +704,6 @@ public sealed partial class draw_card_toc : pb::IMessage<draw_card_toc> {
 public sealed partial class notify_turn_toc : pb::IMessage<notify_turn_toc> {
   private static readonly pb::MessageParser<notify_turn_toc> _parser = new pb::MessageParser<notify_turn_toc>(() => new notify_turn_toc());
   private pb::UnknownFieldSet _unknownFields;
-  private int _hasBits0;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pb::MessageParser<notify_turn_toc> Parser { get { return _parser; } }
 
@@ -808,7 +726,6 @@ public sealed partial class notify_turn_toc : pb::IMessage<notify_turn_toc> {
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public notify_turn_toc(notify_turn_toc other) : this() {
-    _hasBits0 = other._hasBits0;
     playerId_ = other.playerId_;
     dir_ = other.dir_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -821,56 +738,30 @@ public sealed partial class notify_turn_toc : pb::IMessage<notify_turn_toc> {
 
   /// <summary>Field number for the "player_id" field.</summary>
   public const int PlayerIdFieldNumber = 1;
-  private readonly static uint PlayerIdDefaultValue = 0;
-
   private uint playerId_;
   /// <summary>
   /// 玩家ID 你是0 你的下家是1 下下家是2 以此类推
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public uint PlayerId {
-    get { if ((_hasBits0 & 1) != 0) { return playerId_; } else { return PlayerIdDefaultValue; } }
+    get { return playerId_; }
     set {
-      _hasBits0 |= 1;
       playerId_ = value;
     }
-  }
-  /// <summary>Gets whether the "player_id" field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasPlayerId {
-    get { return (_hasBits0 & 1) != 0; }
-  }
-  /// <summary>Clears the value of the "player_id" field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearPlayerId() {
-    _hasBits0 &= ~1;
   }
 
   /// <summary>Field number for the "dir" field.</summary>
   public const int DirFieldNumber = 2;
-  private readonly static bool DirDefaultValue = false;
-
   private bool dir_;
   /// <summary>
   /// true-顺时针 false-逆时针
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public bool Dir {
-    get { if ((_hasBits0 & 2) != 0) { return dir_; } else { return DirDefaultValue; } }
+    get { return dir_; }
     set {
-      _hasBits0 |= 2;
       dir_ = value;
     }
-  }
-  /// <summary>Gets whether the "dir" field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasDir {
-    get { return (_hasBits0 & 2) != 0; }
-  }
-  /// <summary>Clears the value of the "dir" field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearDir() {
-    _hasBits0 &= ~2;
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -894,8 +785,8 @@ public sealed partial class notify_turn_toc : pb::IMessage<notify_turn_toc> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (HasPlayerId) hash ^= PlayerId.GetHashCode();
-    if (HasDir) hash ^= Dir.GetHashCode();
+    if (PlayerId != 0) hash ^= PlayerId.GetHashCode();
+    if (Dir != false) hash ^= Dir.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -909,11 +800,11 @@ public sealed partial class notify_turn_toc : pb::IMessage<notify_turn_toc> {
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public void WriteTo(pb::CodedOutputStream output) {
-    if (HasPlayerId) {
+    if (PlayerId != 0) {
       output.WriteRawTag(8);
       output.WriteUInt32(PlayerId);
     }
-    if (HasDir) {
+    if (Dir != false) {
       output.WriteRawTag(16);
       output.WriteBool(Dir);
     }
@@ -925,10 +816,10 @@ public sealed partial class notify_turn_toc : pb::IMessage<notify_turn_toc> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (HasPlayerId) {
+    if (PlayerId != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PlayerId);
     }
-    if (HasDir) {
+    if (Dir != false) {
       size += 1 + 1;
     }
     if (_unknownFields != null) {
@@ -942,10 +833,10 @@ public sealed partial class notify_turn_toc : pb::IMessage<notify_turn_toc> {
     if (other == null) {
       return;
     }
-    if (other.HasPlayerId) {
+    if (other.PlayerId != 0) {
       PlayerId = other.PlayerId;
     }
-    if (other.HasDir) {
+    if (other.Dir != false) {
       Dir = other.Dir;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -979,7 +870,6 @@ public sealed partial class notify_turn_toc : pb::IMessage<notify_turn_toc> {
 public sealed partial class set_deck_num_toc : pb::IMessage<set_deck_num_toc> {
   private static readonly pb::MessageParser<set_deck_num_toc> _parser = new pb::MessageParser<set_deck_num_toc>(() => new set_deck_num_toc());
   private pb::UnknownFieldSet _unknownFields;
-  private int _hasBits0;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pb::MessageParser<set_deck_num_toc> Parser { get { return _parser; } }
 
@@ -1002,7 +892,6 @@ public sealed partial class set_deck_num_toc : pb::IMessage<set_deck_num_toc> {
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public set_deck_num_toc(set_deck_num_toc other) : this() {
-    _hasBits0 = other._hasBits0;
     num_ = other.num_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
@@ -1014,26 +903,13 @@ public sealed partial class set_deck_num_toc : pb::IMessage<set_deck_num_toc> {
 
   /// <summary>Field number for the "num" field.</summary>
   public const int NumFieldNumber = 1;
-  private readonly static uint NumDefaultValue = 0;
-
   private uint num_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public uint Num {
-    get { if ((_hasBits0 & 1) != 0) { return num_; } else { return NumDefaultValue; } }
+    get { return num_; }
     set {
-      _hasBits0 |= 1;
       num_ = value;
     }
-  }
-  /// <summary>Gets whether the "num" field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasNum {
-    get { return (_hasBits0 & 1) != 0; }
-  }
-  /// <summary>Clears the value of the "num" field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearNum() {
-    _hasBits0 &= ~1;
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1056,7 +932,7 @@ public sealed partial class set_deck_num_toc : pb::IMessage<set_deck_num_toc> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (HasNum) hash ^= Num.GetHashCode();
+    if (Num != 0) hash ^= Num.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -1070,7 +946,7 @@ public sealed partial class set_deck_num_toc : pb::IMessage<set_deck_num_toc> {
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public void WriteTo(pb::CodedOutputStream output) {
-    if (HasNum) {
+    if (Num != 0) {
       output.WriteRawTag(8);
       output.WriteUInt32(Num);
     }
@@ -1082,7 +958,7 @@ public sealed partial class set_deck_num_toc : pb::IMessage<set_deck_num_toc> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (HasNum) {
+    if (Num != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Num);
     }
     if (_unknownFields != null) {
@@ -1096,7 +972,7 @@ public sealed partial class set_deck_num_toc : pb::IMessage<set_deck_num_toc> {
     if (other == null) {
       return;
     }
-    if (other.HasNum) {
+    if (other.Num != 0) {
       Num = other.Num;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -1126,7 +1002,6 @@ public sealed partial class set_deck_num_toc : pb::IMessage<set_deck_num_toc> {
 public sealed partial class discard_card_tos : pb::IMessage<discard_card_tos> {
   private static readonly pb::MessageParser<discard_card_tos> _parser = new pb::MessageParser<discard_card_tos>(() => new discard_card_tos());
   private pb::UnknownFieldSet _unknownFields;
-  private int _hasBits0;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pb::MessageParser<discard_card_tos> Parser { get { return _parser; } }
 
@@ -1149,7 +1024,6 @@ public sealed partial class discard_card_tos : pb::IMessage<discard_card_tos> {
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public discard_card_tos(discard_card_tos other) : this() {
-    _hasBits0 = other._hasBits0;
     cardId_ = other.cardId_;
     wantColor_ = other.wantColor_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -1162,56 +1036,30 @@ public sealed partial class discard_card_tos : pb::IMessage<discard_card_tos> {
 
   /// <summary>Field number for the "card_id" field.</summary>
   public const int CardIdFieldNumber = 1;
-  private readonly static uint CardIdDefaultValue = 0;
-
   private uint cardId_;
   /// <summary>
   /// 出的牌的ID
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public uint CardId {
-    get { if ((_hasBits0 & 1) != 0) { return cardId_; } else { return CardIdDefaultValue; } }
+    get { return cardId_; }
     set {
-      _hasBits0 |= 1;
       cardId_ = value;
     }
-  }
-  /// <summary>Gets whether the "card_id" field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasCardId {
-    get { return (_hasBits0 & 1) != 0; }
-  }
-  /// <summary>Clears the value of the "card_id" field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearCardId() {
-    _hasBits0 &= ~1;
   }
 
   /// <summary>Field number for the "want_color" field.</summary>
   public const int WantColorFieldNumber = 2;
-  private readonly static uint WantColorDefaultValue = 0;
-
   private uint wantColor_;
   /// <summary>
   /// 出黑牌时，选择想要的颜色
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public uint WantColor {
-    get { if ((_hasBits0 & 2) != 0) { return wantColor_; } else { return WantColorDefaultValue; } }
+    get { return wantColor_; }
     set {
-      _hasBits0 |= 2;
       wantColor_ = value;
     }
-  }
-  /// <summary>Gets whether the "want_color" field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasWantColor {
-    get { return (_hasBits0 & 2) != 0; }
-  }
-  /// <summary>Clears the value of the "want_color" field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearWantColor() {
-    _hasBits0 &= ~2;
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1235,8 +1083,8 @@ public sealed partial class discard_card_tos : pb::IMessage<discard_card_tos> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (HasCardId) hash ^= CardId.GetHashCode();
-    if (HasWantColor) hash ^= WantColor.GetHashCode();
+    if (CardId != 0) hash ^= CardId.GetHashCode();
+    if (WantColor != 0) hash ^= WantColor.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -1250,11 +1098,11 @@ public sealed partial class discard_card_tos : pb::IMessage<discard_card_tos> {
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public void WriteTo(pb::CodedOutputStream output) {
-    if (HasCardId) {
+    if (CardId != 0) {
       output.WriteRawTag(8);
       output.WriteUInt32(CardId);
     }
-    if (HasWantColor) {
+    if (WantColor != 0) {
       output.WriteRawTag(16);
       output.WriteUInt32(WantColor);
     }
@@ -1266,10 +1114,10 @@ public sealed partial class discard_card_tos : pb::IMessage<discard_card_tos> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (HasCardId) {
+    if (CardId != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CardId);
     }
-    if (HasWantColor) {
+    if (WantColor != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(WantColor);
     }
     if (_unknownFields != null) {
@@ -1283,10 +1131,10 @@ public sealed partial class discard_card_tos : pb::IMessage<discard_card_tos> {
     if (other == null) {
       return;
     }
-    if (other.HasCardId) {
+    if (other.CardId != 0) {
       CardId = other.CardId;
     }
-    if (other.HasWantColor) {
+    if (other.WantColor != 0) {
       WantColor = other.WantColor;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -1320,7 +1168,6 @@ public sealed partial class discard_card_tos : pb::IMessage<discard_card_tos> {
 public sealed partial class discard_card_toc : pb::IMessage<discard_card_toc> {
   private static readonly pb::MessageParser<discard_card_toc> _parser = new pb::MessageParser<discard_card_toc>(() => new discard_card_toc());
   private pb::UnknownFieldSet _unknownFields;
-  private int _hasBits0;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pb::MessageParser<discard_card_toc> Parser { get { return _parser; } }
 
@@ -1343,9 +1190,8 @@ public sealed partial class discard_card_toc : pb::IMessage<discard_card_toc> {
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public discard_card_toc(discard_card_toc other) : this() {
-    _hasBits0 = other._hasBits0;
     playerId_ = other.playerId_;
-    card_ = other.HasCard ? other.card_.Clone() : null;
+    card_ = other.card_ != null ? other.card_.Clone() : null;
     wantColor_ = other.wantColor_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
@@ -1357,29 +1203,16 @@ public sealed partial class discard_card_toc : pb::IMessage<discard_card_toc> {
 
   /// <summary>Field number for the "player_id" field.</summary>
   public const int PlayerIdFieldNumber = 1;
-  private readonly static uint PlayerIdDefaultValue = 0;
-
   private uint playerId_;
   /// <summary>
   /// 玩家ID 你是0 你的下家是1 下下家是2 以此类推
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public uint PlayerId {
-    get { if ((_hasBits0 & 1) != 0) { return playerId_; } else { return PlayerIdDefaultValue; } }
+    get { return playerId_; }
     set {
-      _hasBits0 |= 1;
       playerId_ = value;
     }
-  }
-  /// <summary>Gets whether the "player_id" field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasPlayerId {
-    get { return (_hasBits0 & 1) != 0; }
-  }
-  /// <summary>Clears the value of the "player_id" field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearPlayerId() {
-    _hasBits0 &= ~1;
   }
 
   /// <summary>Field number for the "card" field.</summary>
@@ -1392,42 +1225,19 @@ public sealed partial class discard_card_toc : pb::IMessage<discard_card_toc> {
       card_ = value;
     }
   }
-  /// <summary>Gets whether the card field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasCard {
-    get { return card_ != null; }
-  }
-  /// <summary>Clears the value of the card field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearCard() {
-    card_ = null;
-  }
 
   /// <summary>Field number for the "want_color" field.</summary>
   public const int WantColorFieldNumber = 3;
-  private readonly static uint WantColorDefaultValue = 0;
-
   private uint wantColor_;
   /// <summary>
   /// 出黑牌时，选择想要的颜色
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public uint WantColor {
-    get { if ((_hasBits0 & 2) != 0) { return wantColor_; } else { return WantColorDefaultValue; } }
+    get { return wantColor_; }
     set {
-      _hasBits0 |= 2;
       wantColor_ = value;
     }
-  }
-  /// <summary>Gets whether the "want_color" field is set</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool HasWantColor {
-    get { return (_hasBits0 & 2) != 0; }
-  }
-  /// <summary>Clears the value of the "want_color" field</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void ClearWantColor() {
-    _hasBits0 &= ~2;
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1452,9 +1262,9 @@ public sealed partial class discard_card_toc : pb::IMessage<discard_card_toc> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (HasPlayerId) hash ^= PlayerId.GetHashCode();
-    if (HasCard) hash ^= Card.GetHashCode();
-    if (HasWantColor) hash ^= WantColor.GetHashCode();
+    if (PlayerId != 0) hash ^= PlayerId.GetHashCode();
+    if (card_ != null) hash ^= Card.GetHashCode();
+    if (WantColor != 0) hash ^= WantColor.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -1468,15 +1278,15 @@ public sealed partial class discard_card_toc : pb::IMessage<discard_card_toc> {
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public void WriteTo(pb::CodedOutputStream output) {
-    if (HasPlayerId) {
+    if (PlayerId != 0) {
       output.WriteRawTag(8);
       output.WriteUInt32(PlayerId);
     }
-    if (HasCard) {
+    if (card_ != null) {
       output.WriteRawTag(18);
       output.WriteMessage(Card);
     }
-    if (HasWantColor) {
+    if (WantColor != 0) {
       output.WriteRawTag(24);
       output.WriteUInt32(WantColor);
     }
@@ -1488,13 +1298,13 @@ public sealed partial class discard_card_toc : pb::IMessage<discard_card_toc> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (HasPlayerId) {
+    if (PlayerId != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PlayerId);
     }
-    if (HasCard) {
+    if (card_ != null) {
       size += 1 + pb::CodedOutputStream.ComputeMessageSize(Card);
     }
-    if (HasWantColor) {
+    if (WantColor != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(WantColor);
     }
     if (_unknownFields != null) {
@@ -1508,16 +1318,16 @@ public sealed partial class discard_card_toc : pb::IMessage<discard_card_toc> {
     if (other == null) {
       return;
     }
-    if (other.HasPlayerId) {
+    if (other.PlayerId != 0) {
       PlayerId = other.PlayerId;
     }
-    if (other.HasCard) {
-      if (!HasCard) {
+    if (other.card_ != null) {
+      if (card_ == null) {
         Card = new global::uno_card();
       }
       Card.MergeFrom(other.Card);
     }
-    if (other.HasWantColor) {
+    if (other.WantColor != 0) {
       WantColor = other.WantColor;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -1536,7 +1346,7 @@ public sealed partial class discard_card_toc : pb::IMessage<discard_card_toc> {
           break;
         }
         case 18: {
-          if (!HasCard) {
+          if (card_ == null) {
             Card = new global::uno_card();
           }
           input.ReadMessage(Card);
@@ -1546,6 +1356,245 @@ public sealed partial class discard_card_toc : pb::IMessage<discard_card_toc> {
           WantColor = input.ReadUInt32();
           break;
         }
+      }
+    }
+  }
+
+}
+
+/// <summary>
+/// 通知客户端谁赢了
+/// </summary>
+public sealed partial class notify_win_toc : pb::IMessage<notify_win_toc> {
+  private static readonly pb::MessageParser<notify_win_toc> _parser = new pb::MessageParser<notify_win_toc>(() => new notify_win_toc());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<notify_win_toc> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::UnoReflection.Descriptor.MessageTypes[8]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public notify_win_toc() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public notify_win_toc(notify_win_toc other) : this() {
+    playerId_ = other.playerId_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public notify_win_toc Clone() {
+    return new notify_win_toc(this);
+  }
+
+  /// <summary>Field number for the "player_id" field.</summary>
+  public const int PlayerIdFieldNumber = 1;
+  private uint playerId_;
+  /// <summary>
+  /// 玩家ID 你是0 你的下家是1 下下家是2 以此类推
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public uint PlayerId {
+    get { return playerId_; }
+    set {
+      playerId_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as notify_win_toc);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(notify_win_toc other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (PlayerId != other.PlayerId) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (PlayerId != 0) hash ^= PlayerId.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+    if (PlayerId != 0) {
+      output.WriteRawTag(8);
+      output.WriteUInt32(PlayerId);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (PlayerId != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PlayerId);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(notify_win_toc other) {
+    if (other == null) {
+      return;
+    }
+    if (other.PlayerId != 0) {
+      PlayerId = other.PlayerId;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 8: {
+          PlayerId = input.ReadUInt32();
+          break;
+        }
+      }
+    }
+  }
+
+}
+
+/// <summary>
+/// 重开
+/// </summary>
+public sealed partial class restart_game_tos : pb::IMessage<restart_game_tos> {
+  private static readonly pb::MessageParser<restart_game_tos> _parser = new pb::MessageParser<restart_game_tos>(() => new restart_game_tos());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<restart_game_tos> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::UnoReflection.Descriptor.MessageTypes[9]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public restart_game_tos() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public restart_game_tos(restart_game_tos other) : this() {
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public restart_game_tos Clone() {
+    return new restart_game_tos(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as restart_game_tos);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(restart_game_tos other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(restart_game_tos other) {
+    if (other == null) {
+      return;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
       }
     }
   }
