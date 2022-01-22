@@ -61,7 +61,7 @@
     <Compile Include="Assets\Scripts\UI\UICard.cs" />
     <Compile Include="Assets\Scripts\NetWork\NetWork.cs" />
     <Compile Include="Assets\Scripts\Common\ColorString.cs" />
-    <Compile Include="Assets\Scripts\Game\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\UI\GameWindow.cs" />
     <Compile Include="Assets\GameEnter.cs" />
     <Compile Include="Assets\Scripts\Game\Player.cs" />
@@ -71,6 +71,8 @@
     <Compile Include="Assets\Scripts\UI\UIOtherPlayer.cs" />
     <Compile Include="Assets\Scripts\Game\PlayerBase.cs" />
     <Compile Include="Assets\Scripts\Game\PlayerOther.cs" />
+    <Compile Include="Assets\Scripts\Manager\SoundManager.cs" />
+    <Compile Include="Assets\Role.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -295,9 +297,6 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>E:\Program Files (x86)\Unity\Editor\2020.3.10f1c1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Memory">
       <HintPath>Assets\Plugins\Protobuf\System.Memory.dll</HintPath>
     </Reference>
@@ -306,6 +305,9 @@
     </Reference>
     <Reference Include="Google.Protobuf">
       <HintPath>Assets\Plugins\Protobuf\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Assets\Plugins\Protobuf\System.Runtime.CompilerServices.Unsafe.dll</HintPath>

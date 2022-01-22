@@ -22,6 +22,10 @@ public class GameWindow : MonoBehaviour
     public Button color2;
     public Button color3;
     public Button color4;
+    public Button drwawCard;
+    public Button disCard;
+    public Button changeModel;
+    public Role role;
     public Transform arrow;
     // Start is called before the first frame update
     void Start()
@@ -33,6 +37,10 @@ public class GameWindow : MonoBehaviour
         color2.onClick.AddListener(() => OnClickWantColor(2));
         color3.onClick.AddListener(() => OnClickWantColor(3));
         color4.onClick.AddListener(() => OnClickWantColor(4));
+        drwawCard.onClick.AddListener(() => OnClickDrawCard());
+        disCard.onClick.AddListener(OnClickDiscard);
+        changeModel.onClick.AddListener(OnClickChangeModel);
+
     }
 
     // Update is called once per frame
@@ -60,6 +68,18 @@ public class GameWindow : MonoBehaviour
     public void OnClickDiscard()
     {
         GameManager.Singleton.Discard();
+    }
+
+    public void OnClickWantColor(int id)
+    {
+        WantColorUI.SetActive(false);
+        GameManager.Singleton.wantColor = id;
+        GameManager.Singleton.Discard();
+    }
+
+    public void OnClickChangeModel()
+    {
+        role.RandomAll();
     }
 
     public void ShowButtons(bool show)
@@ -110,13 +130,6 @@ public class GameWindow : MonoBehaviour
     public void ShowColorSelect()
     {
         WantColorUI.SetActive(true);
-    }
-
-    public void OnClickWantColor(int id)
-    {
-        WantColorUI.SetActive(false);
-        GameManager.Singleton.wantColor = id;
-        GameManager.Singleton.Discard();
     }
 
     public void RefreshOtherPlayers()
