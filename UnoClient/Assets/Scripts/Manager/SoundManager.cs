@@ -52,7 +52,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlayMusic(Music musicName)
+    public void PlayMusic(Music musicName, bool loop = true)
     {
         if(music != null)
         {
@@ -60,6 +60,7 @@ public class SoundManager : MonoBehaviour
             {
                 music.Stop();
             }
+            music.loop = loop;
             AudioClip audioClip = Resources.Load(MUSIC_PATH[musicName], typeof(AudioClip)) as AudioClip;
             music.clip = audioClip;
             music.Play();

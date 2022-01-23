@@ -30,7 +30,7 @@ public static class ProtoHelper
         else if (GetIdFromProtoName("other_add_hand_card_toc") == id)
         {
             other_add_hand_card_toc other_add_hand_card_toc = other_add_hand_card_toc.Parser.ParseFrom(contont);
-            Debug.LogError("-----other_add_hand_card_toc, PlayerId, Num:" + other_add_hand_card_toc.PlayerId + "," + other_add_hand_card_toc.Num);
+            //Debug.LogError("-----other_add_hand_card_toc, PlayerId, Num:" + other_add_hand_card_toc.PlayerId + "," + other_add_hand_card_toc.Num);
             GameManager.Singleton.OnOtherDrawCards((int)other_add_hand_card_toc.PlayerId, (int)other_add_hand_card_toc.Num);
         }
         else if (GetIdFromProtoName("draw_card_toc") == id)
@@ -49,7 +49,7 @@ public static class ProtoHelper
         else if (GetIdFromProtoName("notify_turn_toc") == id)
         {
             notify_turn_toc notify_turn_toc = notify_turn_toc.Parser.ParseFrom(contont);
-            Debug.LogError("-----notify_turn_toc, PlayerId Dir:" + notify_turn_toc.PlayerId + "," + notify_turn_toc.Dir);
+            //Debug.LogError("-----notify_turn_toc, PlayerId Dir:" + notify_turn_toc.PlayerId + "," + notify_turn_toc.Dir);
 
             GameManager.Singleton.OnTurnTo((int)notify_turn_toc.PlayerId, notify_turn_toc.Dir);
         }
@@ -57,14 +57,14 @@ public static class ProtoHelper
         {
             set_deck_num_toc set_deck_num_toc = set_deck_num_toc.Parser.ParseFrom(contont);
 
-            Debug.LogError("-----set_deck_num_toc, Num:" + set_deck_num_toc.Num);
+            //Debug.LogError("-----set_deck_num_toc, Num:" + set_deck_num_toc.Num);
 
             GameManager.Singleton.OnDeckNumTo((int)set_deck_num_toc.Num);
         }
         else if (GetIdFromProtoName("discard_card_toc") == id)
         {
             discard_card_toc discard_card_toc = discard_card_toc.Parser.ParseFrom(contont);
-            Debug.LogError("-----discard_card_toc, PlayerId CardId Color Num WantColor:" + discard_card_toc.PlayerId + "," + discard_card_toc.Card.CardId + "," + discard_card_toc.Card.Color + "," + discard_card_toc.Card.Num + "," + discard_card_toc.WantColor);
+            //Debug.LogError("-----discard_card_toc, PlayerId CardId Color Num WantColor:" + discard_card_toc.PlayerId + "," + discard_card_toc.Card.CardId + "," + discard_card_toc.Card.Color + "," + discard_card_toc.Card.Num + "," + discard_card_toc.WantColor);
             GameManager.Singleton.OnDisCard((int)discard_card_toc.PlayerId, (int)discard_card_toc.Card.CardId, (int)discard_card_toc.Card.Color, (int)discard_card_toc.Card.Num, (int)discard_card_toc.WantColor);
         }
         else if (GetIdFromProtoName("discard_card_tos") == id)
@@ -79,6 +79,7 @@ public static class ProtoHelper
         {
             notify_win_toc notify_win_toc = notify_win_toc.Parser.ParseFrom(contont);
             Debug.Log("" + notify_win_toc.PlayerId + "∫≈ÕÊº“”Æ¡À");
+            GameManager.Singleton.OnGameEnd((int)notify_win_toc.PlayerId);
         }
         else if(GetIdFromProtoName("restart_game_tos") == id)
         {

@@ -17,6 +17,8 @@ public class GameWindow : MonoBehaviour
     public Text TextLog;
     public Text TextTip;
     public GameObject EnterUI;
+    public GameObject GameEnd;
+    public Text textResoult;
     public GameObject WantColorUI;
     public Button color1;
     public Button color2;
@@ -25,6 +27,7 @@ public class GameWindow : MonoBehaviour
     public Button drwawCard;
     public Button disCard;
     public Button changeModel;
+    public Button butRestart;
     public Role role;
     public Transform arrow;
     public Scrollbar scrollbar;
@@ -41,6 +44,7 @@ public class GameWindow : MonoBehaviour
         drwawCard.onClick.AddListener(() => OnClickDrawCard());
         disCard.onClick.AddListener(OnClickDiscard);
         changeModel.onClick.AddListener(OnClickChangeModel);
+        butRestart.onClick.AddListener(OnClickRestart);
 
     }
 
@@ -83,6 +87,11 @@ public class GameWindow : MonoBehaviour
         role.RandomAll();
     }
 
+    public void OnClickRestart()
+    {
+        GameEnd.SetActive(false);
+        ProtoHelper.SendRestartMessage();
+    }    
     public void ShowButtons(bool show)
     {
         buttons.SetActive(show);
@@ -212,6 +221,13 @@ public class GameWindow : MonoBehaviour
         yield return new WaitForSeconds(2);
         TextTip.gameObject.SetActive(false);
         yield break;
+    }
+
+    internal void ShowContinue(bool win)
+    {
+        GameEnd.SetActive(true);
+        string text = win ? "”Æ¡À£°" : " ‰¡À£°";
+        textResoult.text = text;
     }
 
     internal void SetTurn()

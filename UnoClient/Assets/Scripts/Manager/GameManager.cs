@@ -394,6 +394,20 @@ public class GameManager
         }
         gameWindow.AddMsg(string.Format(log, GetCardInfo(color, num)));
     }
+
+    internal void OnGameEnd(int playerId)
+    {
+        if (playerId == 0)
+        {
+            SoundManager.Singleton.PlayMusic(Music.Win, false);
+        }
+        else
+        {
+            SoundManager.Singleton.PlayMusic(Music.Lose, false);
+        }
+
+        gameWindow.ShowContinue(playerId == 0);
+    }
     #endregion
 
 
