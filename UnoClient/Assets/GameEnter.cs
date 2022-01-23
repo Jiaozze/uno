@@ -7,16 +7,16 @@ using UnityEngine.UI;
 public class GameEnter : MonoBehaviour
 {
     public InputField Input;
-    public static byte[] test;
+    //public static byte[] test;
     private string ip;
     // Start is called before the first frame update
     private void Awake()
     {
         GameManager.Singleton.Init();
         CardFactory.Init();
-        Input.onEndEdit.AddListener((s) => {
-            ip = s;
-        });
+        //Input.onEndEdit.AddListener((s) => {
+        //    ip = s;
+        //});
     }
     void Start()
     {
@@ -35,6 +35,7 @@ public class GameEnter : MonoBehaviour
 
     public void OnClickStart()
     {
+        ip = Input.text;
         NetWork.Init(ip);
     }
 

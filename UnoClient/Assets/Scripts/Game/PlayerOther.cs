@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerOther : PlayerBase
 {
-    SkinnedMeshRenderer skinnedMeshRenderer;
+    public string name = "";
+    //SkinnedMeshRenderer skinnedMeshRenderer;
     private UIOtherPlayer ui;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class PlayerOther : PlayerBase
     public void SetUI(UIOtherPlayer ui)
     {
         this.ui = ui;
+        ui.Init(name);
     }
 
     public void DrawCard(int num)
@@ -51,5 +53,10 @@ public class PlayerOther : PlayerBase
         {
             GameObject.Destroy(ui.gameObject);
         }
+    }
+
+    internal void Init(string name)
+    {
+        this.name = name;
     }
 }

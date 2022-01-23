@@ -1138,7 +1138,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 5667336973670003491}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1252,7 +1252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 162.99988}
+  m_AnchoredPosition: {x: 0, y: 163}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2208233234980012236
@@ -2300,8 +2300,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3134873787188004345}
   m_HandleRect: {fileID: 3895220992099329542}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.9998651
+  m_Value: 0
+  m_Size: 0.99745554
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4053,11 +4053,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: OtherPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 758566816629386822, guid: 1cc65e9c01480bf4fbf41bba4c7a5fa7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 758566816629386823, guid: 1cc65e9c01480bf4fbf41bba4c7a5fa7,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4161,31 +4156,6 @@ PrefabInstance:
     - target: {fileID: 758566816629386823, guid: 1cc65e9c01480bf4fbf41bba4c7a5fa7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8060476490594861764, guid: 1cc65e9c01480bf4fbf41bba4c7a5fa7,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8060476490594861764, guid: 1cc65e9c01480bf4fbf41bba4c7a5fa7,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8060476490594861764, guid: 1cc65e9c01480bf4fbf41bba4c7a5fa7,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8060476490594861764, guid: 1cc65e9c01480bf4fbf41bba4c7a5fa7,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8060476490594861764, guid: 1cc65e9c01480bf4fbf41bba4c7a5fa7,
-        type: 3}
-      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

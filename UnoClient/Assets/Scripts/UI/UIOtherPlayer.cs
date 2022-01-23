@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class UIOtherPlayer : MonoBehaviour
 {
-    public Text text_num;
+    public Text textNum;
+    public Text textName;
     public Image bg;
+    public Role model;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +22,12 @@ public class UIOtherPlayer : MonoBehaviour
         
     }
 
-    public void Init()
+    public void Init(string name)
     {
         SetNum(0);
         SetTurn(false);
+        textName.text = name;
+        model.RandomAll();
     }
 
     public void ShowDrawCards(int num)
@@ -33,7 +37,7 @@ public class UIOtherPlayer : MonoBehaviour
 
     public void SetNum(int num)
     {
-        text_num.text = " ÷≈∆£∫" + num;
+        textNum.text = "" + num;
     }
 
     internal void SetTurn(bool onTurn)

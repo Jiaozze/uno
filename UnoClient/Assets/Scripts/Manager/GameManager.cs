@@ -70,16 +70,13 @@ public class GameManager
             }
         }
         otherPlayers.Clear();
-        for (int i = 0; i < num; i++)
-        {
-            PlayerOther player = new PlayerOther();
-            otherPlayers.Add(player);
-        }
         List<UIOtherPlayer> uIOtherPlayers = gameWindow.CreatPlayers(num);
         for (int i = 0; i < num; i++)
         {
-            otherPlayers[i].SetUI(uIOtherPlayers[i]);
-            uIOtherPlayers[i].Init();
+            PlayerOther player = new PlayerOther();
+            player.Init("" + i + "ºÅÍæ¼Ò");
+            player.SetUI(uIOtherPlayers[i]);
+            otherPlayers.Add(player);
         }
     }
 
