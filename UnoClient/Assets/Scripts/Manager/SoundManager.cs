@@ -48,6 +48,7 @@ public class SoundManager : MonoBehaviour
             var obj = new GameObject("[music]");
             DontDestroyOnLoad(obj);
             music = obj.AddComponent<AudioSource>();
+            music.loop = true;
         }
     }
 

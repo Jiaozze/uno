@@ -27,6 +27,7 @@ public class GameWindow : MonoBehaviour
     public Button changeModel;
     public Role role;
     public Transform arrow;
+    public Scrollbar scrollbar;
     // Start is called before the first frame update
     void Start()
     {
@@ -171,8 +172,14 @@ public class GameWindow : MonoBehaviour
         string log = TextLog.text;
         log = log + "\n" + newLog;
         TextLog.text = log;
+        StartCoroutine(InsSrollBar());
     }
 
+    IEnumerator InsSrollBar()
+    {
+        yield return new WaitForEndOfFrame();
+        scrollbar.value = 0;
+    }
     public void InsertCard(UICard uICard)
     {
         int index = 0;
@@ -209,7 +216,7 @@ public class GameWindow : MonoBehaviour
 
     internal void SetTurn()
     {
-        arrow.localRotation = Quaternion.Euler(GameManager.Singleton.dir ? 180:0, 0f, 90);
+        arrow.localRotation = Quaternion.Euler(0f, GameManager.Singleton.dir ? 180:0, 0f);
     }
 
     //private Ie

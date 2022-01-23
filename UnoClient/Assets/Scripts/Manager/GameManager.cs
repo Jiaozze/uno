@@ -79,7 +79,7 @@ public class GameManager
         for (int i = 0; i < num; i++)
         {
             PlayerOther player = new PlayerOther();
-            player.Init("" + i + "ºÅÍæ¼Ò");
+            player.Init("" + (i + 1) + "ºÅÍæ¼Ò");
             player.SetUI(uIOtherPlayers[i]);
             otherPlayers.Add(player);
         }
