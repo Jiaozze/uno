@@ -22,13 +22,14 @@ public class GameManager
     public List<Card> cards;
     //public 
     private static GameManager gameManager;
+    private static bool inited = false;
     private int DeckNum;
 
     public static GameManager Singleton
     {
         get
         {
-            if (gameManager == null)
+            if (gameManager == null && !inited)
             {
                 gameManager = new GameManager();
                 gameManager.Init();
@@ -42,19 +43,23 @@ public class GameManager
 
     public void Init()
     {
-        otherPlayers = new List<PlayerOther>();
-        GameObject windowGo = GameObject.Find("GameWindow");
-        if (gameWindow == null && windowGo != null)
+        if(!inited)
         {
-            gameWindow = windowGo.GetComponent<GameWindow>();
-            if (gameWindow == null)
+            inited = true;
+            otherPlayers = new List<PlayerOther>();
+            GameObject windowGo = GameObject.Find("GameWindow");
+            if (gameWindow == null && windowGo != null)
             {
-                gameWindow = windowGo.AddComponent<GameWindow>();
+                gameWindow = windowGo.GetComponent<GameWindow>();
+                if (gameWindow == null)
+                {
+                    gameWindow = windowGo.AddComponent<GameWindow>();
+                }
             }
-        }
-        else
-        {
-            //TODO
+            else
+            {
+                //TODO
+            }
         }
     }
 
@@ -220,6 +225,7 @@ public class GameManager
 
     public void OnReceiveGameStart(int player_num, List<Card> cards)
     {
+        SoundManager.Singleton.PlayMusic(Music.Play);
         PlayerNum = player_num;
         if(this.cards != null && cards.Count > 0)
         {
@@ -234,7 +240,7 @@ public class GameManager
 
         gameWindow.AddMsg(string.Format("ƒ„√˛¡À{0}’≈≈∆, {1}", cards.Count, GetCardsInfo(cards)));
         //gameWindow.Invoke("Init", 0.1f);
-
+        
     }
 
     public void OnPlayerDrawCards(List<uno_card> cards)

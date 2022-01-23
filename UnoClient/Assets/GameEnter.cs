@@ -13,6 +13,8 @@ public class GameEnter : MonoBehaviour
     private void Awake()
     {
         GameManager.Singleton.Init();
+        SoundManager.Singleton.Init();
+        SoundManager.Singleton.PlayMusic(Music.Welcome);
         CardFactory.Init();
         //Input.onEndEdit.AddListener((s) => {
         //    ip = s;
